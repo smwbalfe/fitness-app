@@ -1,0 +1,218 @@
+<% layout('boilerplate/template') -%>
+
+<% block('profile').append('<link rel="stylesheet" type="text/css" href="/css/profile/profile.css">') %>
+    <div id = "profileDiv">
+        <h1 > Hey there, <%= user.accountname %> </h1>
+        <br>
+        <br>
+        <div class="center" id="cardsDiv">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="card shadow-lg mb-3 border-success" style="width: 90%;">
+                            <div class="card-body display-relative stepBox">
+                                <h3 class="card-title"> <strong>Steps Overview</strong></h3>
+                                <hr>
+                                <div class = "mb-2">
+                                    <img src = "/css/profile/images/steps.svg" class = "stepsLogo">
+                                </div>
+                                <div>
+                                    <i class="fas fa-circle stepCounter" >
+                                        <span class = "child2">
+                                            <small>
+                                                <%= data.steps.count %>
+                                            </small>
+                                        </span>
+                                    </i>
+                                </div>
+                                <div class = "percentage">
+                                    <div class = "d-inline " >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-up-right percentageUP" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
+                                        </svg>
+                                    </div>
+                                    <div class = "d-inline ">
+                                        <h4 class= "d-inline p-2"><small > <%= data.steps.change %></small></h4>
+                                    </div>
+                                </div>
+
+                                <h4 class = "qualityTag">Step Count</h4>
+                                <div class = "space">
+                                </div>
+
+                                <div class =" d-flex flex-column justify-content-center">
+                                    <button type="button" class="btn btn-outline-dark mt-auto mb-auto ">View more</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="card shadow-lg mb-3 " style="width: 90%;">
+                            <div class="card-body sleepBox">
+                                <h3 class="card-title"><strong>Sleep Overview</strong></h3>
+                                <hr>
+                                <div class = "sleepTotal mb-3">
+                                    <div class = " d-inline">
+                                        <img class = "d-inline clock" src= "/css/profile/images/clock.svg">
+                                    </div>
+                                    <h4 class = "d-inline sleepTotalTag"> 12</h4>
+                                </div>
+
+                                <div>
+                                     <i class="fas fa-circle parent" >
+                                        <span class = "child">
+                                            <small>
+                                                34
+                                            </small>
+                                        </span>
+                                     </i>
+                                </div>
+                                <div class = "percentage">
+                                    <div class = "d-inline " >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-down-left percentageDOWN" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M2 13.5a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 0-1H3.707L13.854 2.854a.5.5 0 0 0-.708-.708L3 12.293V7.5a.5.5 0 0 0-1 0v6z"/>
+                                        </svg>
+                                    </div>
+                                    <div class = "d-inline ">
+                                        <h4 class= "d-inline p-2"><small > +34% </small></h4>
+                                    </div>
+                                </div>
+
+                                <h4 class = "qualityTag">Sleep Quality</h4>
+
+                                <div class = "sleep">
+                                    <div class = "d-inline " >
+                                        <img class = "d-inline moon" src= "/css/profile/images/moon.svg">
+                                    </div>
+                                    <div class = "d-inline ">
+                                        <h5 class = "d-inline d-flex flex-column justify-content-start"> 9pm </h5>
+                                    </div>
+                                </div>
+                                <div class = "wake">
+                                    <div class = "d-inline " >
+                                        <img class = "d-inline moon" src= "/css/profile/images/sun.svg">
+                                    </div>
+                                    <div class = "d-inline ">
+
+                                                <h5 class = "d-inline d-flex flex-column justify-content-start"> 9am</h5>
+                                                <h5 class = "d-inline d-flex flex-column justify-content-start"></h5>
+
+                                    </div>
+                                </div>
+                                <div class =" d-flex flex-column justify-content-center">
+                                    <button type="button" class="btn btn-outline-dark mt-auto mb-auto ">View more</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="card shadow-lg mb-3 border-dark" style="width: 90%;">
+                            <div class="card-body heartBox">
+                                <h3 class="card-title"><strong>Heart Rate Overview</strong></h3>
+                                <hr>
+                                <div class = "mb-2">
+                                    <img src = "/css/profile/images/heart.svg" class = "heartLogo">
+                                </div>
+                                <div>
+                                    <i class="fas fa-circle heartCounter" >
+                                        <span class = "child2">
+                                            <small>
+                                                <%= data.heartRate.averagebpm %>
+                                            </small>
+                                        </span>
+                                    </i>
+                                </div>
+                                <div class = "percentage">
+                                    <div class = "d-inline " >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-slash-circle medium" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M11.354 4.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 .708.708l6-6a.5.5 0 0 0 0-.708z"/>
+                                        </svg>
+                                    </div>
+                                    <div class = "d-inline ">
+                                        <h4 class= "d-inline p-2"><small > <%= data.heartRate.change %></small></h4>
+                                    </div>
+                                </div>
+
+                                <h4 class = "heartTag">Average BPM</h4>
+
+                                <div class = "space">
+                                </div>
+                                <div class =" d-flex flex-column justify-content-center">
+                                    <button type="button" class="btn btn-outline-dark mt-auto mb-auto ">View more</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class = "row mt-5 mb-5">
+                            <div class ="col-md-5 mb-3 moodTag">
+                                <h4>How are you feeling right now <%= user.accountname %>?</h4>
+                                <select class="form-select  moodInput" id = "moodValue" aria-label="Default select example">
+                                    <option value="Normal">Normal</option>
+                                    <option value="Sad">Sad</option>
+                                    <option value="Happy">Happy</option>
+                                    <option value="Angry">Angry</option>
+                                    <option value="Anxious">Anxious</option>
+                                    <option value="Fear">Fear</option>
+                                    <option value="Envious">Envious</option>
+                                    <option value="Jealous">Jealous</option>
+                                    <option value="Love">Love</option>
+                                </select>
+                            </div>
+                            <div class = "col-md-5">
+                                <label for="water">
+                                    <span class="waterTag">Water glass count <small>(1 cup approx 250ml)</small></span>
+                                </label>
+                                <input type="number" id="water" name="tentacles">
+                            </div>
+                            <div class = "col-md-5 mb-3">
+                                <label for="Wake_Time">
+                                    <span class="wakeTag">Wake Time</span>
+                                </label>
+                                <input type="time" id="Wake_Time" name="Wake_Time">
+                                <label for="Sleep_Time">
+                                    <span class="SleepTag">Sleep Time</span>
+                                </label>
+                                <input type="time" id="Sleep_Time" name = "Sleep_Time">
+                            </div>
+                    </div>
+                <button onclick="submitInfo()">Submit</button>
+            </div>
+        </div>
+    </div>
+<script>
+    function submitInfo(){
+        let mood = document.querySelectorAll('#moodValue')[0].value
+        let glassValue = document.querySelectorAll('#water')[0].value
+        let wakeTime = document.querySelectorAll('#Wake_Time')[0].value
+        let sleepTime = document.querySelectorAll('#Sleep_Time')[0].value
+
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/query/feedProfileValues',
+            data: {
+                mood,
+                glassValue,
+                wakeTime,
+                sleepTime
+            }
+        })
+
+    }
+    function updateValues(){
+
+        axios({
+            method: 'post',
+            url:'http://localhost:3000/query/updateProfileView',
+        }).then(res => {
+            const {stepcount, volume, averagebpm, bedtime, waketime, high, low, sleepquality}= res.data;
+            console.log(stepcount, volume, averagebpm, bedtime, waketime, high, low, sleepquality);
+
+        })
+        setTimeout(updateValues, 5000);
+    }
+    updateValues();
+</script>
+

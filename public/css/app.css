@@ -1,0 +1,25 @@
+* {
+    font-family: 'Josefin Sans', sans-serif; !important;
+}
+
+h4 {
+    font-family: 'Josefin Sans', sans-serif; !important;
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+}
+
+#googleLogOut{
+    color: white; !important;
+}
+
+#percentageUP{
+    color:green;
+}
+
+.percentageDOWN{
+    color:red;
+}
+

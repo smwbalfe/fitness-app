@@ -1,0 +1,143 @@
+.child {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40%;
+    color: black;
+    font-weight: lighter;
+}
+
+
+.parent{
+    position: relative;
+    font-size: 80px;
+    color:white;
+    border: 2px solid red;
+    border-radius: 100%;
+}
+.stepCounter{
+    position: relative;
+    font-size: 80px;
+    color:white;
+    border: 2px solid green;
+    border-radius: 100%;
+
+}
+.test2 {
+    animation-duration: 4s;
+}
+.sleepBox{
+    box-shadow: 1px 1px 40px 1px #FF0000;!important;
+    position: relative;
+}
+
+.stepBox{
+    box-shadow: 1px 1px 40px 1px #299e42;!important;
+    position: relative;
+}
+
+.moodInput{
+    width: 60%;!important;
+}
+
+.medium{
+    color: #fc9403;
+    transform: rotate(45deg);
+}
+.heartBox{
+    box-shadow: 1px 1px 40px 1px #fc9403;!important;
+    position: relative;
+
+}
+
+.child2{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30%;
+    color: black;
+    font-weight: lighter;
+}
+.stepsLogo{
+    width: 6%;
+}
+.moodTag{
+    text-align: left;
+    width: 25%;
+}
+.clock{
+    width:50%
+}
+.sleepTotalTag{
+    justify-content: start;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+.space{
+    color:white;
+    padding: 25%;
+}
+.sleepTotal{
+    display: flex;
+    justify-content: center;
+
+}
+.moon{
+    width: 12%;
+}
+.sleepTimes{
+    display: inline-block;
+}
+.percentage{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5% auto auto;
+}
+.heartLogo{
+    width: 10%;
+}
+.waterTag{
+    display: block;
+    text-align: left;
+    font-size: 150%;
+    font-weight:bold;
+    margin-bottom: 10%;
+}
+
+.heartCounter{
+    position: relative;
+    font-size: 80px;
+    color:white;
+    border: 2px solid #fc9403;
+    border-radius: 100%;
+}
+
+div label small{
+    color: grey;
+    font-size: 50%;
+}
+#water{
+    display: block;
+    margin: auto;
+
+}
+.percentageUP{
+    color: green;
+}
+
+.qualityTag {
+    margin-top: 5%;
+}
+
+
+.date {
+    display: inline-block;
+    background-color: beige;
+    margin-bottom: 20px;
+
+}

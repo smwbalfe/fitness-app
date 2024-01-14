@@ -1,0 +1,30 @@
+{
+  "name": "fitnessAppSoftware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs": "^2.8.6",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "bootstrap-icons": "^1.4.0",
+    "ejs-mate": "^3.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "googleapis": "^67.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.11.18",
+    "morgan": "^1.10.0",
+    "node-schedule": "^2.0.0",
+    "nodemon": "^2.0.7",
+    "pg": "^8.5.1",
+    "query-string": "^6.14.0",
+    "url-parse": "^1.5.1"
+  }
+}

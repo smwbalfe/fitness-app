@@ -1,0 +1,14 @@
+<h1>Analytics page </h1>
+
+<% let tabs = [["Steps","/Steps"], ["Sleep","/Sleep"],["Heart Rate","/HeartRate"]] %>
+
+<ul class="nav nav-pills" id="myTab">
+
+    <% for (var i = 0; i < tabs.length; i++) { %>
+        <% let tab_name = tabs[i][0] %>
+        <% let tab_link = tabs[i][1] %>
+        <li class="nav-item">
+            <a class="nav-link" id="<%= tab_name %>-tab" href="/analytics<%= tab_link %>"><%= tab_name %></a>
+        </li>
+    <% } %>
+</ul>

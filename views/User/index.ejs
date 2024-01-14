@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/no-data-to-display.js"></script>
+<body>
+
+    <div id="steps-graph"></div>
+
+</body>
+</html>
+
+<script>
+    var graphType = 'column'; // Makes chart a bar graph.
+    var yAxisLabel = 'Steps';
+    var graphColour = 'rgb(3, 119, 252)'; // The colour of each bar.
+
+    // Changing the value of dataPeriodChoice will display different graphs for the total
+    // steps per day, week, or month.
+    // You can change this value now to either 'day', 'week', or 'month' to see an example graph for each
+    // time period.
+    var dataPeriodChoice = 'week'; // Get from chosen radio button.
+    var dataPeriodSubDivision; // Is set manually based on dataPeriodChoice.
+    var dataPeriodValue; // Get from chosen date/week/month.
+
+    var stepsData = []; // Will have the number of steps for each hour/day depending on what the user has chosen to display.
+    var xAxisValues = []; // Will contain the hours of the day, days of the week, or days of the chosen month.
+    var xAxisLabel; // Will say either 'Hours' or 'Days' depending on the users chosen data period.
+
+    // If the user has chosen to view the data for a specific day.
+    if(dataPeriodChoice === 'day') {
+        dataPeriodSubDivision = 'hour';
+
+        // The day chosen, will have to get this from an input.
+        dataPeriodValue = 'DD/MM/YYYY';
+
+        // Get the data for the number of steps for that day.
+        stepsData = [0, 0, 0, 0, 0, 0, 0, 22, 102, 231, 97, 76, 467, 234, 113, 61, 104, 216, 45, 56, 34, 26, 0, 0];
+
+        // The hours of the day.
+        xAxisValues = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00',
+            '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23ß*:00'];
+
+        xAxisLabel = 'Hours';
+    } else if (dataPeriodChoice === 'week') {
+        dataPeriodSubDivision = 'day';
+
+        // The day at the start of the week and end of the week, and again, will have to get this from an input.
+        dataPeriodValue = 'DD/MM/YYYY - DD/MM/YYYY';
+
+        // Get the data for the number of steps for each day of that week.
+        stepsData = [1423, 2378, 4690, 2165, 2387, 7639, 8214];
+
+        // The days of the week.
+        xAxisValues = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+        xAxisLabel = 'Days';
+    } else if(dataPeriodChoice === 'month') {
+        dataPeriodSubDivision = 'day';
+
+        // The month chosen by the user, once again will have to be taken from user input.
+        dataPeriodValue = 'MM/YYYY';
+
+        // Get the data for the number of steps each day of that month.
+        stepsData = [1423, 2378, 4690, 2165, 2387, 7639, 8214, 1884, 979, 3022, 2499, 3042, 9020, 6063,
+            2221, 3336, 5450, 3396, 3409, 7052, 8405, 1844, 2575, 4522, 3679, 3488, 10843, 5782,
+            1239, 2653, 3003];
+
+        // Loop through and generate the date for each day of the chosen month.
+        for(var i = 1; i <= stepsData.length; i++) {
+            if(i < 10) {
+                xAxisValues.push('0' + i + '/' + dataPeriodValue);
+            } else {
+                xAxisValues.push(i + '/' + dataPeriodValue);
+            }
+        }
+
+        xAxisLabel = 'Days';
+    }
+
+    // Generate the title for the graph based on the user's choices.
+    var titleText = 'Steps per ' + dataPeriodSubDivision + ' in ' + dataPeriodChoice + ' ' + dataPeriodValue;
+
+    // stepsData = [];
+
+    // Create and display the graph
+    const stepsGraph = Highcharts.chart('steps-graph', {
+        chart: {
+            type: graphType
+        },
+        title: {
+            text: titleText,
+        },
+        xAxis: {
+            categories: xAxisValues,
+            title: {
+                text: xAxisLabel
+            }
+        },
+        yAxis: {
+            title: {
+                text: yAxisLabel
+            }
+        },
+        legend: {
+            enabled: false,
+        },
+        series: [{
+            name: "Total Steps", // This is a label for when the user hovers over a goven bar.
+            data: stepsData,
+            color: graphColour,
+        }],
+    });
+</script>

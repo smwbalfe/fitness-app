@@ -1,0 +1,99 @@
+<% layout('boilerplate/template') -%>
+
+<% block('settingsCSS').append('<link rel="stylesheet" type="text/css" href="/css/settings/settings.css">') %>
+
+
+<div id = "settingsDiv">
+    <h2 class="center"><strong> Settings </strong></h2>
+    <br>
+    <label> Username: </label>
+    <div class="input-group mb-3">
+        <input type = "text" class = "form-control"  id = "usernameInput" placeholder = "username" aria-label = "username">
+    </div>
+    <br>
+    <hr>
+
+    <div id = "notificationDiv">
+        <h4> Notifications: </h4>
+        <div class="leftMargin">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type = "checkbox" id ="emailSwitch">
+                <label class="form-check-label" for = "emailSwitch"> Email </label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type = "checkbox" id = "pushSwitch">
+                <label class="form-check-label" for = "pushSwitch"> Push notifications</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type = "checkbox" id="smsSwitch">
+                <label class="form-check-label" for = "smsSwitch"> SMS </label>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div id = "privacyDiv">
+        <h4> Privacy: </h4>
+        <div class="leftMargin">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type = "checkbox" id ="rankedSwitch">
+                <label class="form-check-label" for = "rankedSwitch"> Ranked </label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type = "checkbox" id = "logOutButton">
+                <label class="form-check-label" for = "logOutButton"> Log out on exit </label>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div id = "fitnessRankSelect">
+        <h4> Tier of fitness: </h4>
+        <div class="leftMargin">
+            <label>
+                <select class="form-select form-select-sm" id ="fitnessTier" aria-label=".form-select-sm example">
+                    <option selected> select </option>
+                    <option value="1"> low </option>
+                    <option value="2"> moderate </option>
+                    <option value="3"> high </option>
+                </select>
+            </label>
+            <button class="btn btn-outline-success submitButton" onclick=updateSettings() type="button"> Update settings</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateSettings(){
+        const username = document.querySelectorAll("#usernameInput");
+        const email = document.querySelectorAll("#emailSwitch");
+        const fitnessTier = document.querySelectorAll("#fitnessTier");
+        const ranked = document.querySelectorAll("#rankedSwitch")
+        let dropValue = fitnessTier[0].value;
+        let tiers = ['low','moderate' , 'high']
+        let tierValue = tiers[dropValue-1];
+        let checkEmail = email[0].checked;
+        let notifications = null;
+        if (checkEmail){
+            notifications = 'email'
+        }
+        let data = {
+            settings:{
+                notifications: notifications,
+                fitnessLevel: tierValue,
+                privacy: ranked[0].checked
+            },
+            username: username[0].value
+        }
+        axios({
+
+            method: 'POST',
+            url: 'http://localhost:3000/query/settingsUpdate',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: data,
+
+        }).catch(err => console.log(err))
+    }
+</script>

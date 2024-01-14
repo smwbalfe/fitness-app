@@ -1,0 +1,23 @@
+<% layout('boilerplate/template') -%>
+
+<% block('head').append('<link rel="stylesheet" type="text/css" href="/css/analytics/analytics.css">') %>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/dumbbell.js"></script>
+<script src="https://code.highcharts.com/modules/no-data-to-display.js"></script>
+
+
+<div class = "row">
+    <%- include('../Analytics/analyticsNavigationTabs')%>
+
+    <div class="graph ">
+        <div id="<%= graph %>-graph"></div>
+    </div>
+
+    <script src="/js/graphs/main.js"></script>
+    <script src="/js/graphs/<%= graph %>_graph.js"></script>
+
+    <%- include('../Analytics/rangeSliderSteps')%>
+
+</div>

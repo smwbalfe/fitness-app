@@ -1,0 +1,30 @@
+<% layout('boilerplate/template') -%>
+
+<% block('head').append('<link rel="stylesheet" type="text/css" href="/css/leaderboards/leaderboard_style.css">') %>
+
+<h2 class="center"><strong> Leaderboards </strong></h2>
+
+<!-- <h1> Leaderboards </h1> Suggestion. to use h2 instead of h1. we can change it back to h1 if you guys want to-->
+
+<h3>Steps</h3>
+<div class="scrollable-row row flex-nowrap">
+
+    <% for (var i = 0; i < data.length; i++) { %>
+        <% let trophy = (i < 3) ? "-" + (i + 1) : "" %>
+        <%# Make the trophy spin (by giving it the leader-pos-1 class) only if it is one of the top 3 entries%>
+        <%let spin = (i < 3) ? "leader-pos-1" : "" %>
+        <div class="col-3">
+            <div class="card card-shadow-lg" style="width: 18rem;">
+                <img class="card-img-top <%= spin%>" src="/css/leaderboards/trophy<%=trophy%>.png" alt="First Place">
+                <div class="card-body">
+                    <h4 class="card-title">Position <%= i+1 %></h4>
+                        <!--        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><%=data[i][0]%></li>
+                    <li class="list-group-item"><%=data[i][1]%></li>
+                </ul>
+            </div>
+        </div>
+    <% } %>
+</div>

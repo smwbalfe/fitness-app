@@ -1,0 +1,60 @@
+
+.runner-up
+{
+    text-align: center;
+}
+
+.leader-pos-3
+ {
+
+ }
+.leader-pos-2
+{
+
+}
+
+.leader-pos-1
+{
+    border: gold;
+    color:gold;
+    text-align: center;
+    animation-name: spinner;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+    transform-style: preserve-3d;
+}
+
+.gold-border
+{
+    border: 1px solid gold;
+}
+
+.silver-border
+{
+    border: 1px solid silver;
+}
+
+.bronze-border
+{
+    border: 1px solid darkorange;
+}
+
+
+.scrollable-row
+{
+    width:100%;
+    overflow-x: scroll;
+}
+
+@keyframes spinner {
+    from
+    {
+
+        transform: rotateY(0deg);
+    }
+    to
+    {
+        transform: rotateY(-360deg);
+
+    }
+}

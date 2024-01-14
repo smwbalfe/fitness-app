@@ -1,0 +1,72 @@
+<div class="d-flex flex-column align-items-center w-25 m-3">
+    <label id="timeScaleRangeDescription" for="Time Scale" >Default</label>
+    <input type="range" class="" id="timeScaleRange" min="0" max="2" oninput="onInput()">
+</div>
+
+<div id="DailyReference" style="display:none">
+    <label for="timeOfDayRef">
+        Find Specific Time:
+    </label>
+    <input type="date" id="timeOfDayRef" oninput="dateFromUserDay('timeOfDayRef')">
+</div>
+
+<div id="WeeklyReference" style="display:none">
+    <label for="weekRef">
+        Find Specific Week:
+    </label>
+    <input type="week" id="weekRef" oninput="dateFromUserWeek('weekRef')">
+</div>
+
+<div id="MonthlyReference" style="display:none">
+    <label for="monthRef">
+        Find Specific Month:
+    </label>
+    <input type="month" id="monthRef" oninput="dateFromUserMonth('monthRef')">
+</div>
+
+<script>
+    let timeScaleMarkers = ["day", "week", "month"];
+    let timeScaleLabels = ["Daily", "Weekly", "Monthly"]
+    document.getElementById("timeScaleRange").max = timeScaleMarkers.length - 1;
+    let selectedTimeRangePrev = "Daily";
+    function onInput()
+    {
+        let selectedIndex = document.getElementById("timeScaleRange").value;
+        let selectedTimeRange = timeScaleMarkers[selectedIndex];
+        let selectedTimeRangeLabel = timeScaleLabels[selectedIndex];
+        periodChoice = selectedTimeRange.slice();
+        document.getElementById("timeScaleRangeDescription").innerHTML = selectedTimeRangeLabel;
+        document.getElementById(selectedTimeRangePrev + "Reference").style.display = "none";
+        document.getElementById(selectedTimeRangeLabel + "Reference").style.display = "block";
+        makeChart();
+        selectedTimeRangePrev = selectedTimeRangeLabel; // used to hide the previous reference selection field
+    }
+    onInput();
+    function dateFromUserDay(id)
+    {
+        let splitInput = document.getElementById(id).value.split("-");
+        selectedDate = new Date(parseInt(splitInput[0]), parseInt(splitInput[1]), parseInt(splitInput[2]));
+        updateDate();
+        makeChart();
+    }
+    function dateFromUserWeek(id)
+    {
+        let splitInput = document.getElementById(id).value.split("-");
+        let weekNumString = splitInput[1].slice(1);
+        let weekNum = parseInt(weekNumString);
+        let yearNum = parseInt(splitInput[0]);
+        let selectedYear = new Date(yearNum);
+        let selectedWeek = new Date();
+        selectedWeek.setDate(selectedYear.getDate() + weekNum*7)
+        selectedDate = selectedWeek;
+        updateDate();
+        makeChart();
+    }
+    function dateFromUserMonth(id)
+    {
+        let splitInput = document.getElementById(id).value.split("-");
+        selectedDate = new Date(parseInt(splitInput[0]) , parseInt(splitInput[1]));
+        updateDate();
+        makeChart();
+    }
+</script>

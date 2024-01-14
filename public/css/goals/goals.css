@@ -1,0 +1,15 @@
+/* Source for the animation of a progress: https://bestjquery.com/tutorial/progress-bar/demo72/ (accessed on the 21st of March 2021)*/
+.progress .progress-bar{
+    box-shadow: none;
+    border: none;
+    border-radius: 15px;
+    position: relative;
+    -webkit-animation: animate-positive 1s;
+    animation: animate-positive 1s;
+}
+@-webkit-keyframes animate-positive{
+    0%{ width: 0; }
+}
+@keyframes animate-positive{
+    0%{ width: 0; }
+}

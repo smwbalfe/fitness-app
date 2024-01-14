@@ -1,0 +1,71 @@
+<% layout('boilerplate/template') -%>
+
+<% block('goals').append('<link rel="stylesheet" type="text/css" href="/css/goals/goals.css">') %>
+
+
+
+<script>
+    <!-- Helped by the code from here: https:\\codepen.io\subarroca\pen\JbMzpG -->
+    function changeColours(){
+        let p1 = Math.round(Math.random()*100)/100;
+        let p2 = Math.round(Math.random()*100)/100;
+        changeBar(document.getElementById("stepsProgressBarID"), p1);
+        changeBar(document.getElementById("templateProgressBarID"), p2);
+    }
+    function changeBar(element, value){
+        element.style.setProperty('background-color', value);
+        element.style.width=`${value*100}%`;
+        element.style.setProperty('background-color', getColor(value));
+        element.innerHTML = `${value*100}%`;
+    }
+    function getColor(value){
+        return  (value<0.2)?'#c03':((value<0.75) ? '#e57441': '#137545');
+    }
+</script>
+
+
+<div id = "goalsDiv">
+    <h2 class="center"><strong> Goals </strong></h2>
+
+    <button type="button" class="btn btn-success" onclick="changeColours()">Change values below</button>
+    <br>
+    <br>
+
+    <h4>Steps</h4>
+    Goal for the day:
+    <div class="input-group mb-3">
+        <div class="d-inline-flex">
+            <input type = "text" class = "form-control"  id = "usernameInput" placeholder = "amount of steps" aria-label = "amount of steps">
+        </div>
+    </div>
+
+    <div id = "stepsProgressDiv">
+        <div class="float-start">0</div>
+        <div class="float-end">&nbsp;*amount of steps*</div><br>
+        <div class="progress">
+            <div class="progress-bar" id="stepsProgressBarID" style="background-color:green; width:90%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                90%
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <h4>Template</h4>
+    Goal for the day/week/month/etc.:
+    <div class="input-group mb-3">
+        <div class="d-inline-flex">
+            <input type = "text" class = "form-control"  id = "exampleInput" placeholder = "example" aria-label = "exampleInput">
+        </div>
+    </div>
+
+    <div id = "progressDiv">
+        <div class="float-start">0</div>
+        <div class="float-end">&nbsp;*amount of ...*</div><br>
+        <div class="progress shadow-lg mb-5">
+            <div class="progress-bar" id="templateProgressBarID" style="background-color:red; width:10%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-value" id="stepsProgressValueID">60%</div>
+            </div>
+        </div>
+    </div>
+</div>
