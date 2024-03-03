@@ -5,3 +5,5 @@
 - SQL
 - EJS
 - Google APIs
+- Node.js
+- Express
