@@ -1,9 +1,14 @@
-##### Technologies used
-- Javascript
-- HTML
-- CSS
-- SQL
-- EJS
-- Google APIs
-- Node.js
-- Express
+- **Core Features:**
+  - Integration with Google Fit API for fitness data tracking.
+  - User authentication and management.
+  - Data visualization for fitness metrics (steps, sleep, heart rate).
+  - Leaderboards and analytics for user performance comparison.
+  - Goal setting and tracking for fitness objectives.
+  - User profile customization and settings.
+
+- **Technologies Used:**
+  - **Frontend:** HTML, CSS, JavaScript, EJS for templating.
+  - **Backend:** Node.js with Express framework.
+  - **Database:** SQL for data storage.
+  - **APIs:** Google APIs for fitness data.
+  - **Styling:** CSS for custom styles and responsive design.
